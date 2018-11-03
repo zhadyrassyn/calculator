@@ -1,0 +1,126 @@
+body {
+  background-color: #E5E5E5;
+}
+
+* {
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.main {
+  width: 200px;
+  height: 350px;
+}
+
+.display {
+  height: 100px;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: flex-end;
+  /*background-color: #fff, rgb(255, 255, 255)*/
+}
+
+span {
+  align-self: flex-end;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  word-wrap: break-word;
+  width: 100%;
+  text-align: right;
+}
+
+.row {
+  display: flex;
+}
+
+.button {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.body {
+  color: black;
+}
+
+#first > div:nth-child(1) {
+  background-color: #0F266B;
+}
+
+#first > div:nth-child(2) {
+  background-color: #0C2369;
+}
+
+#first > div:nth-child(3) {
+  background-color: #0C2263;
+}
+
+#first > div:nth-child(4) {
+  background-color: #CF066D;
+}
+
+#second > div:nth-child(1) {
+  background-color: #21479F;
+}
+
+#second > div:nth-child(2) {
+  background-color: #2E54AB;
+}
+
+#second > div:nth-child(3) {
+  background-color: #3F67C4;
+}
+
+#second > div:nth-child(4) {
+  background-color: #D62480;
+}
+
+#third > div:nth-child(1) {
+  background-color: #2E54AB;
+}
+
+#third > div:nth-child(2) {
+  background-color: #3B5FB2;
+}
+
+#third > div:nth-child(3) {
+  background-color: #4D6FBF;
+}
+
+#third > div:nth-child(4) {
+  background-color: #D63A8A;
+}
+
+.right {
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  line-height: 100px;
+  background-color: #D94E95;
+}
+
+#forth > div:nth-child(1) {
+  background-color: #3F67C4;
+}
+
+#forth > div:nth-child(2) {
+  background-color: #4B71C9;
+}
+
+#forth > div:nth-child(3) {
+  background-color: #5579CF;
+}
+
+#fifth > div:nth-child(1) {
+  background-color: #577BCF;
+}
+
+#fifth > div:nth-child(2) {
+  background-color: #6489DE;
+}
+
+#fifth > div:nth-child(3) {
+  background-color: #6f95ed;
+}

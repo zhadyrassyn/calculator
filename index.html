@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+
+  <link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <div class="main">
+    <div class="display">
+      <span id="js--result"></span>
+    </div>
+    <div class="body">
+      <div class="row" id="first">
+        <div class="button" id="js--clearAll">C</div>
+        <div class="button operation">/</div>
+        <div class="button operation">*</div>
+        <div class="button" id="js--clearLast">X</div>
+      </div>
+
+      <div class="row" id="second">
+        <div class="button number">7</div>
+        <div class="button number">8</div>
+        <div class="button number">9</div>
+        <div class="button operation">-</div>
+      </div>
+
+      <div class="row" id="third">
+        <div class="button number">4</div>
+        <div class="button number">5</div>
+        <div class="button number">6</div>
+        <div class="button operation">+</div>
+      </div>
+
+      <div class="row">
+        <div class="left">
+          <div class="row" id="forth">
+            <div class="button number">1</div>
+            <div class="button number">2</div>
+            <div class="button number">3</div>
+          </div>
+
+          <div class="row" id="fifth">
+            <div class="button">%</div>
+            <div class="button number">0</div>
+            <div class="button number">.</div>
+          </div>
+        </div>
+
+        <div class="right" id="js--btn-equal">
+          =
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    var numbers = document.getElementsByClassName("number");
+
+    for (var i = 0; i < numbers.length; i++) {
+      var button = numbers[i];
+      button.onclick = handleNumberClick;
+    }
+
+    function handleNumberClick(event) {
+      var text = event.target.innerText;
+      getResult().innerText += text;
+    }
+
+    function getResult() {
+      return document.getElementById("js--result");
+    }
+
+    document.getElementById("js--clearAll").onclick = function () {
+      getResult().innerText = "";
+    };
+
+    document.getElementById("js--clearLast").onclick = function() {
+      var resultNode = getResult();
+      var text = resultNode.innerText.substring(0, resultNode.innerText.length - 1);
+      resultNode.innerText = text;
+    }
+
+    var operations = document.getElementsByClassName("operation");
+    for (var i = 0; i < operations.length; i++) {
+      operations[i].onclick = handleOperationClick;
+    }
+
+    var a = "";
+    var sign = "";
+    function handleOperationClick(event) {
+      sign = event.target.innerText;
+      a = getResult().innerText;
+      getResult().innerText = "";
+    }
+
+    document.getElementById("js--btn-equal").onclick = function() {
+      var b = getResult().innerText;
+      var result = 0;
+      if (sign === "+") {
+        result = parseFloat(a) + parseFloat(b);
+      } else if (sign === "-") {
+        result = parseFloat(a) - parseFloat(b);
+      } else if (sign === '*') {
+        result = parseFloat(a) * parseFloat(b);
+      } else if (sign === '/') {
+        result = parseFloat(a) / parseFloat(b);
+      }
+
+      a = result;
+      getResult().innerText = result;
+    }
+  </script>
+</body>
+</html>
