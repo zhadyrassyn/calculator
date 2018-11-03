@@ -59,10 +59,73 @@
 
   </div>
 
-  <!--<script-->
-      <!--src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+  <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-  <script type="text/javascript" src="js/index.js">
+  <!--<script type="text/javascript" src="js/index.js">-->
+  <!--</script>-->
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      function getResult() {
+        return $("#js--result");
+      }
+      var numbers = $(".number");
+      for (var i = 0; i < numbers.length; i++) {
+        $(numbers[i]).click(function(event) {
+          console.log('event ', event);
+          var number = event.target.innerText;
+          $("#js--result").append(number);
+        })
+      }
+
+      $("#js--clearAll").click(function(event) {
+        $("#js--result").text("");
+      });
+
+      $("#js--clearOne").click(function(event) {
+        var text = getResult().text();
+        text = text.substring(0, text.length - 1);
+        getResult().text(text);
+      });
+
+      var operations = $(".operation");
+      var a = 0;
+      var sign = "";
+      for (var i = 0; i < operations.length; i++) {
+        $(operations[i]).click(function(event) {
+          var text = event.target.innerText;
+          sign = text;
+          a = getResult().text();
+
+
+          $("#numberA").text(a);
+          $("#sign").text(sign);
+
+          getResult().text("");
+        }); //end
+      }
+
+      $("#js--equal").click(function(event) {
+        var b = getResult().text();
+        var result = 0;
+        if (sign == "+") {
+          result = parseFloat(a) + parseFloat(b);
+        } else if (sign == "-") {
+          result = parseFloat(a) - parseFloat(b);
+        } else if (sign == "*") {
+          result = parseFloat(a) * parseFloat(b);
+        } else if (sign == "/") {
+          result = parseFloat(a) / parseFloat(b);
+        }
+
+        $("#numberA").text("");
+        $("#sign").text("");
+
+        getResult().text(result);
+      }) //end
+    });
   </script>
+
 </body>
 </html>
